@@ -5,7 +5,7 @@ import EventList from "../components/event-list/EventList";
 export default function Events() {
   return (
     <main>
-      <Hero title="Events" />
+      <Hero title="Concerts and Theater Events" />
       <SearchFilterBar />
       <EventList />
     </main>
