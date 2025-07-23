@@ -6,10 +6,10 @@ This is a React application designed to display a list of concert and theater ev
 
 * [Setup/Installation](#setupinstallation)
 * [How to Run Your Application](#how-to-run-your-application)
+* [Testing](#how-to-run-tests)
 * [Live Deployment](#live-deployment)
 * [Key Architectural Decisions and Trade-offs](#key-architectural-decisions-and-trade-offs)
 * [What You Would Add/Improve with More Time](#what-you-would-addimprove-with-more-time)
-* [Assumptions Made](#assumptions-made)
 
 ## Setup/Installation
 
@@ -34,6 +34,9 @@ To set up and install the project, follow these steps:
     pnpm install
     ```
 
+4.  **Create .env file and add API Key:**
+    See .env-example for file structure
+
 ## How to Run Your Application
 
 Once the dependencies are installed, you can run the application:
@@ -45,6 +48,23 @@ Once the dependencies are installed, you can run the application:
     This will typically start the application on `http://localhost:5173` (or another available port).
 
 2.  **Open your browser** and navigate to the displayed URL to view the application.
+
+## Testing
+1.  **Unit/Integration Tests:**
+    ```bash
+    pnpm run test
+    ```
+    This will run Vitest test suite
+2. **E2E Tests:**
+    ```bash
+    pnpm run test:e2e:run
+    ```
+    This will run Cypress test suite 
+3. **Coverage:**
+    ```bash
+    pnpm run test:coverage
+    ```
+    This will generate a coverage folder with an html report
 
 ## Live Deployment
 
