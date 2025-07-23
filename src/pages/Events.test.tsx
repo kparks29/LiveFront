@@ -31,16 +31,14 @@ vi.mock('./src/hooks/api', async (importOriginal) => {
   }
 })
 
-test('Events component renders', () => {
-  const queryClient = mockQueryClient();
-  render(
-    <QueryClientProvider client={queryClient}>
-      <Events />
-    </QueryClientProvider>
-  )
-  expect(screen.getByText('Events')).toBeInTheDocument()
-})
-
-test('Events show loading while api is being called', () => {
-
+describe('<Events />', () => {
+  test('Events component renders', () => {
+    const queryClient = mockQueryClient();
+    render(
+      <QueryClientProvider client={queryClient}>
+        <Events />
+      </QueryClientProvider>
+    )
+    expect(screen.getByText('Events')).toBeInTheDocument()
+  })
 })
