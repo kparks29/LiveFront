@@ -5,8 +5,8 @@ This is a React application designed to display a list of concert and theater ev
 ## Table of Contents
 
 * [Setup/Installation](#setupinstallation)
-* [How to Run Your Application](#how-to-run-your-application)
-* [Testing](#how-to-run-tests)
+* [How to Run the Application](#how-to-run-your-application)
+* [How to Test the Application](#testing)
 * [Live Deployment](#live-deployment)
 * [Key Architectural Decisions and Trade-offs](#key-architectural-decisions-and-trade-offs)
 * [What You Would Add/Improve with More Time](#what-you-would-addimprove-with-more-time)
