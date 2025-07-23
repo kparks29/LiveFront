@@ -103,3 +103,4 @@ The application is deployed and can be accessed live at:
 
 * **Resource Data Structure:** Assumed an inconsistant structure for the `EventDto` object, leading to a much more complex validation.  Would want to implement a more robust system to handle this better.  Implement some functional programming concepts such as Optionals and Eithers to help with this.  Perhaps this would also be a good example of using a GraphQL approach for this API if supported instead.
 
+* **Maintain Scroll Position:** Implemented a load more items, however the scroll position gets lost.  I would love to figure out why this is being triggered so that I can improve the user's experience.
