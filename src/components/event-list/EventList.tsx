@@ -1,4 +1,4 @@
-import { useGetEvents } from "../hooks/api"
+import { useGetEvents } from "../../hooks/api"
 import EventItem from "./EventItem"
 import { useMemo } from "react"
 import { ChevronDownIcon } from "@radix-ui/react-icons"

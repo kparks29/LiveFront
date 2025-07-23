@@ -10,10 +10,10 @@ export default function EventDetails() {
 
   return (
     <main>
-      <div className="relative">
+      <div className="relative h-full">
         <Hero imageUrl={event.image} title={event.name} subtitle={event.genre} />
         <div className="absolute text-white left-5 top-5">
-          <NavLink to="/events">
+          <NavLink to="/events" aria-label="Back to Event List">
             <ChevronLeftIcon className="h-10 w-10"></ChevronLeftIcon>
           </NavLink>
         </div>

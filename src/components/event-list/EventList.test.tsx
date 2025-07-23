@@ -1,12 +1,12 @@
 import { vi } from "vitest"
 import { render, screen } from "@testing-library/react"
 import EventList from "./EventList"
-import type { Event } from "../types/Event"
+import type { Event } from "../../types/Event"
 
-vi.mock('../hooks/api', () => ({
+vi.mock('../../hooks/api', () => ({
   useGetEvents: vi.fn()
 }))
-import { useGetEvents } from "../hooks/api"
+import { useGetEvents } from "../../hooks/api"
 const mockedUseGetEvents = vi.mocked(useGetEvents)
 
 vi.mock('./EventItem', () => {
