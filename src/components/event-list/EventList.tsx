@@ -1,14 +1,24 @@
 import { useGetEvents } from "../../hooks/api"
 import EventItem from "./EventItem"
-import { useMemo } from "react"
+import { useMemo, useState, type MouseEvent } from "react"
 import { ChevronDownIcon } from "@radix-ui/react-icons"
 
 export default function EventList() {
-  const { events, isLoading, isError, error, currentPage, totalEvents, totalPages } = useGetEvents(0)
+  const [page, setPage] = useState<number>(0)
+  const { events, isLoading, isError, error, currentPage, totalEvents, totalPages } = useGetEvents(page)
   const progressPercentage = useMemo<number>(() => {
+    if (totalEvents === 0) {
+      return 0
+    }
+
     return Math.ceil((events.length / totalEvents))
-  }, [events, totalEvents])
-  
+  }, [events.length, totalEvents])
+
+  const handleLoadMore = (e: MouseEvent<HTMLButtonElement>): void => {
+    e.preventDefault()
+    setPage(currentPage + 1)
+  }
+
   if (isLoading) {
     return (
       <div>
@@ -40,7 +50,7 @@ export default function EventList() {
             ></div>
           </div>
         </div>
-        {currentPage < totalPages && <button className="flex items-center justify-center gap-2 border-1 border-gray-800 rounded-3xl p-4">Load More <ChevronDownIcon className="size-6" /></button>}
+        {currentPage < totalPages && <button onClick={handleLoadMore} className="flex items-center justify-center gap-2 border-1 border-gray-800 rounded-3xl p-4">Load More <ChevronDownIcon className="size-6" /></button>}
       </div>
     </div>
   )
