@@ -15,6 +15,7 @@ export default defineConfig({
     reporters: ['default'],
     coverage: {
       reporter: ['html'],
-    }
+    },
+    setupFiles: './src/setupTests.ts'
   }
 })
