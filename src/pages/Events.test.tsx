@@ -39,6 +39,6 @@ describe('<Events />', () => {
         <Events />
       </QueryClientProvider>
     )
-    expect(screen.getByText('Events')).toBeInTheDocument()
+    expect(screen.getByText('Concerts and Theater Events')).toBeInTheDocument()
   })
 })

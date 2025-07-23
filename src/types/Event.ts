@@ -39,7 +39,7 @@ export class Event implements EventInterface {
     newEvent.id = dto.id
     newEvent.name = dto.name
     newEvent.genre = dto.classifications[0]?.genre?.name
-    newEvent.description = dto.description
+    newEvent.description = dto.description || dto.info
     newEvent.url = dto.url
     newEvent.notes = dto.pleaseNote
     newEvent.dates = new EventDates(

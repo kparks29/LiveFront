@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import type { Event } from "../../types/Event"
 import { getDate, getDayOfTheWeek, getMonth, getTime } from "../../utils/dateUtil"
 import { useMemo } from "react"
@@ -9,14 +9,21 @@ interface EventItemProps {
 }
 
 export default function EventItem({ event }: EventItemProps) {
+  const navigate = useNavigate()
   const eventMonth = useMemo(() => getMonth(event.dates.start), [event.dates.start])
   const eventDate = useMemo(() => getDate(event.dates.start), [event.dates.start])
   const eventDay = useMemo(() => getDayOfTheWeek(event.dates.start), [event.dates.start])
   const eventTime = useMemo(() => getTime(event.dates.start), [event.dates.start])
 
+  const handleOnClickEventDetails = (eventId: Optional<string>) => {
+    if (eventId) {
+      navigate(`/events/${event.id}`)
+    }
+  }
+
   return (
     <li className="h-48 md:h-24 p-3 shadow-md cursor-pointer transition-shadow hover:shadow-lg">
-      <NavLink to={`/events/${event.id}`}>
+      <div onClick={() => handleOnClickEventDetails(event.id)} className="h-full">
         <div className="h-full flex flex-row gap-3 items-center">
           <div className="w-20 text-center">
             <p className="text-lg" aria-label={`Event Month ${eventMonth.long}`}>{eventMonth.short}</p>
@@ -52,7 +59,7 @@ export default function EventItem({ event }: EventItemProps) {
             : null}
           </div>
         </div>
-      </NavLink>
+      </div>
     </li>
   )
 }

@@ -13,7 +13,12 @@ const mockQueryClient = () => new QueryClient({
   }
 })
 
-const mockEvent = { id: '123', name: 'Test Concert'} as Event
+const mockEvent = {
+  id: '123',
+  name: 'Test Concert',
+  dates: { start: '2025-07-23T00:00:00Z' },
+  venue: { address: '123 test st', name: 'test venue'}
+} as Event
 
 
 vi.mock('../hooks/api', () => ({
@@ -21,6 +26,12 @@ vi.mock('../hooks/api', () => ({
 }))
 import { useGetEventDetails } from "../hooks/api"
 const mockedUseGetEventDetails = vi.mocked(useGetEventDetails)
+
+vi.mock('../components/common/Map', () => ({
+  Map: vi.fn().mockImplementation(() => <></>)
+}))
+import { Map } from '../components/common/Map'
+const mockedMapComponent = vi.mocked(Map)
 
 vi.mock('react-router-dom', async (importOriginal) => {
   const original = await importOriginal<typeof import("react-router-dom")>()
@@ -45,6 +56,7 @@ describe('<EventDetails />', () => {
     mockedUseGetEventDetails.mockReset()
     mockedUseParams.mockReset()
     mockedNavLink.mockReset()
+    mockedMapComponent.mockReset()
   })
 
   it('EventDetails component renders', () => {
