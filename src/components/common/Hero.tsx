@@ -7,7 +7,7 @@ export default function Hero({ imageUrl = './default-hero.jpg', title = '', subt
   return (
     <section
       aria-label="Event hero image"
-      className={`relative w-full h-1/2 md:h-96 lg:h-[50vh] bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden`}
+      className={`relative w-full h-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden`}
       style={{ backgroundImage: `url(${imageUrl})`}}
     >
       <div className="bg-black opacity-50 absolute inset-0" aria-hidden="true">

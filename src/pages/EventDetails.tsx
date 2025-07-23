@@ -59,7 +59,7 @@ export default function EventDetails() {
   return (
     <main>
       <div className="relative h-full flex flex-col">
-        <div className="w-full h-1/2 md:h-96 lg:h-[50vh]">
+        <div className="w-full h-1/2 md:h-[50vh]">
         <Hero imageUrl={event.image} title={event.name} subtitle={event.genre} />
         <div className="absolute text-white left-5 top-5">
           <NavLink to="/events" aria-label="Back to Event List">
@@ -67,7 +67,7 @@ export default function EventDetails() {
           </NavLink>
         </div>
         </div>
-        <div className="flex w-full h-full">
+        <div className="md:flex w-full h-1/2 md:h-96 lg:h-[50vh]">
           <div className="flex-1 h-full p-4">
             <Map venue={event.venue} />
           </div>
