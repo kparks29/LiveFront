@@ -21,6 +21,8 @@ export class Event implements EventInterface {
   venue: EventVenue
   image: Optional<string>
   url: Optional<string>
+  notes: Optional<string>
+  homepage: Optional<string>
 
   constructor() {
     this.dates = new EventDates()
@@ -39,6 +41,7 @@ export class Event implements EventInterface {
     newEvent.genre = dto.classifications[0]?.genre?.name
     newEvent.description = dto.description
     newEvent.url = dto.url
+    newEvent.notes = dto.pleaseNote
     newEvent.dates = new EventDates(
       dto.dates?.start?.dateTime,
     )
@@ -49,10 +52,20 @@ export class Event implements EventInterface {
       venue?.name,
       `${venue?.address?.line1 || ''} ${venue?.address?.line2 || ''}`,
       `${venue?.city?.name || ''} ${venue?.state?.stateCode || ''}`,
-      venue?.postalCode
+      venue?.postalCode,
+      venue?.distance,
+      venue?.units,
+      venue?.location
     )
 
     newEvent.image = dto.images?.find(image => image.ratio === '16_9' && image.height > 500)?.url
+
+    if (dto?._embedded?.attractions && dto?._embedded?.attractions.length > 0) {
+      const attraction = dto?._embedded?.attractions[0]
+      if (attraction.externalLinks?.homepage && attraction.externalLinks?.homepage.length > 0) {
+        newEvent.homepage = attraction?.externalLinks?.homepage[0]?.url
+      }
+    }
 
     return newEvent
   }

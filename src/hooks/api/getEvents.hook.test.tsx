@@ -13,6 +13,7 @@ const mockApiResponse: TicketMasterGetEventsApiResponse = {
         type: 'event',
         locale: 'en-us',
         url: 'https://www.ticketmaster.com/event/123',
+        pleaseNote: '',
         images: [],
         dates: {
           start: { dateTime: '2025-07-23T00:00:00Z' }, status: { code: 'onsale' }
@@ -29,6 +30,9 @@ const mockApiResponse: TicketMasterGetEventsApiResponse = {
         additionalInfo: "",
         info: "",
         _embedded: {
+          attractions: [
+            { externalLinks: { homepage: [{ url: '' }]} }
+          ],
           venues: [
             {
               name: "",
@@ -43,7 +47,13 @@ const mockApiResponse: TicketMasterGetEventsApiResponse = {
                 stateCode: "",
                 name: ""
               },
-              postalCode: ""
+              postalCode: "",
+              distance: 1.02,
+              units: "",
+              location: {
+                latitude: '47.6061',
+                longitude: '-122.3328'
+              }
             }
           ]
         }
@@ -54,6 +64,7 @@ const mockApiResponse: TicketMasterGetEventsApiResponse = {
         type: 'event',
         locale: 'en-us',
         url: 'https://www.ticketmaster.com/event/234',
+        pleaseNote: '',
         images: [],
         dates: {
           start: { dateTime: '2025-07-23T00:00:00Z' }, status: { code: 'onsale' }
@@ -70,6 +81,9 @@ const mockApiResponse: TicketMasterGetEventsApiResponse = {
         additionalInfo: "",
         info: "",
         _embedded: {
+          attractions: [
+            { externalLinks: { homepage: [{ url: '' }]} }
+          ],
           venues: [
             {
               name: "",
@@ -84,7 +98,13 @@ const mockApiResponse: TicketMasterGetEventsApiResponse = {
                 stateCode: "",
                 name: ""
               },
-              postalCode: ""
+              postalCode: "",
+              distance: 1.02,
+              units: "",
+              location: {
+                latitude: '47.6061',
+                longitude: '-122.3328'
+              }
             }
           ]
         }

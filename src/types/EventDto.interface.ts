@@ -7,6 +7,7 @@ export default interface EventDto {
   info: string
   locale: string,
   url: string,
+  pleaseNote: string
   images: {
     url: string,
     ratio: string,
@@ -29,7 +30,14 @@ export default interface EventDto {
       name: string
     }
   }[],
-  _embedded: {
+  _embedded?: {
+    attractions?: {
+      externalLinks?: {
+        homepage?: {
+          url: string
+        }[]
+      }
+    }[],
     venues: {
       name: string,
       address: {
@@ -43,7 +51,13 @@ export default interface EventDto {
         stateCode: string,
         name: string
       },
-      postalCode: string
-    }[]
+      postalCode: string,
+      distance: number,
+      units: string,
+      location: {
+        latitude: string,
+        longitude: string
+      }
+    }[],
   }
 }
